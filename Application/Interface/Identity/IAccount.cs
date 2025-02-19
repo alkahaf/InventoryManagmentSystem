@@ -1,5 +1,4 @@
-﻿
-using Application.DTO.Response;
+﻿using Application.DTO.Response;
 using Application.DTO.Response.Identity;
 using Application.DTO.Request.Identity;
 

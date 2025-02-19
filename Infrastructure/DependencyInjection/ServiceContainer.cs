@@ -7,6 +7,7 @@ using Application.Extension.Identity;
 using Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,7 +21,7 @@ namespace Infrastructure.DependencyInjection
 
             services.AddAuthentication(options =>
             {
-options.DefaultScheme=IdentityConstants.ApplicationScheme;
+                options.DefaultScheme=IdentityConstants.ApplicationScheme;
                 options.DefaultScheme = IdentityConstants.ExternalScheme;
             }).AddIdentityCookies();
             services.AddIdentityCore<ApplicationUser>()
@@ -39,6 +40,10 @@ options.DefaultScheme=IdentityConstants.ApplicationScheme;
                     adp.RequireAuthenticatedUser();
                     adp.RequireRole("User");
                 });
+            //services.AddCascadingAuthenticationState();
+            //services.AddScoped<Application.Interface.Identity.IAccount, Account>();
+            //services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductHandler).Assembly));
+            //services.AddScoped<DataAccess.IDbContextFactory<AppDbContext>, DbContextFactory<AppDbContext>>();
             return services;
         }
     }

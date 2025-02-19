@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Application.DTO.Response.Identity
 {
@@ -15,5 +11,7 @@ namespace Application.DTO.Response.Identity
         public bool Delete { get; set; }
         public bool Update{ get; set; }
         public bool Create { get; set; }
+
+        public bool ManageUser { get; set; }
     }
 }
